@@ -11,6 +11,7 @@
 - react-testing-library
 - jest
 - thunk
+- redux-mock-store
 
 # API
 

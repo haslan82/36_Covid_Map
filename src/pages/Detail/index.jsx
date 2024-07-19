@@ -5,7 +5,7 @@ import getData from "../../redux/actions";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
 import InfoCard from "./InfoCard";
-import { retry } from "@reduxjs/toolkit/query";
+
 
 const Detail = () => {
   const { data, error, isLoading } = useSelector((store) => store);
