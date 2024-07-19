@@ -14,7 +14,7 @@ const arr = new Array (16).fill();
 
   return arr.map((i,key)=>(
   <div data-testid="card-loader" key={key} className='bg-gray-200 p-4 rounded-lg shadow-md 
-  text-transparent min-[206px] animate-pulse mt-6 select-none'>
+  text-transparent min-w-[226px] animate-pulse mt-6 select-none'>
   <p className="bg-gray-300 w-2/5 text-sm font-semibold mb-2 rounded-md">aaa</p>
   <h2 className="bg-gray-300 w-3/4 text-lg font-bold  rounded-md">aaa</h2>
     </div>

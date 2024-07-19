@@ -13,18 +13,24 @@ const Detail = () => {
   // url deki arama parametresini al
   const [params] = useSearchParams();
   const code = params.get("code");
+  const query = params.get("q");
+
   const dispatch = useDispatch();
   //! console.log(code)
+
+
+
+  useEffect(() => {
+    // verileri alıp store a aktaran aksiyonu tetikle
+    dispatch(getData({ code, query }));
+  }, [code, query]);
+
 
 // covid nesnesini diziye çevirme
 const covidArr = Object.entries(data?.covid || {})
 //! console.log(data.covid);
 //! console.log(covidArr);
-
-  useEffect(() => {
-    // verileri alıp store a aktaran aksiyonu tetikle
-    dispatch(getData({ code }));
-  }, []);
+//! console.log(data)
 
   return (
     <div
@@ -57,7 +63,7 @@ const covidArr = Object.entries(data?.covid || {})
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {isLoading? (
           <Loader/>
-        ) : error ? (<Error info={error} retry={()=>dispatch(getData(code))} />
+        ) : error ? (<Error info={error} retry={()=>dispatch(getData(code, query))} />
 
         ):(
 
