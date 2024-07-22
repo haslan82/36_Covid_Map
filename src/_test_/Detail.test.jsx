@@ -93,7 +93,7 @@ arr.forEach((item)=> {
     // başlık ekrana geldi mi ?
 screen.getByText(item[0].split("_").join(" "));
     // değer ekrana geldi mi ?
-    screen.getByText(item[1]);
+    screen.getAllByText(item[1]);
 })
 
     });
