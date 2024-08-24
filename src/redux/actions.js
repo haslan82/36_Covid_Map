@@ -10,10 +10,10 @@ const headers = {
     'x-rapidapi-host': 'covid-19-statistics.p.rapidapi.com'
   }
 
-const getData = createAsyncThunk("covid/getData",async ({code, query})=>{
-  //! console.log(query);
+const getData = createAsyncThunk("covid/getData",async ({code})=>{
+   
    // api ye gönderilecek parametreleri hazırla
-   const params = {iso: code, q: query};
+   const params = {iso: code};
    
     // isocad a göre covid verilerini al 
 //! console.log("aksiyon tetiklendi", code)
@@ -24,13 +24,7 @@ const getData = createAsyncThunk("covid/getData",async ({code, query})=>{
 const req1 = axios.get(covidUrl,{params, headers});
 //! console.log(res)
    // isocad a göre ülke verilerini al
-   const req2 = axios.get(
-    code 
-    ? `https://restcountries.com/v3.1/alpha/${code}`
-    : `https://restcountries.com/v3.1/name/${query}`
-
-);
-
+   const req2 = axios.get(`https://restcountries.com/v3.1/alpha/${code}`);
 //! console.log(res2)
 
 // todo api isteklerini daha iyi at

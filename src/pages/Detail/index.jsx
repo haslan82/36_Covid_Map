@@ -4,33 +4,25 @@ import { Link, useSearchParams } from "react-router-dom";
 import getData from "../../redux/actions";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
-import InfoCard from "./InfoCard";
-
-
+import InfoCard from "../../components/Detail"
 const Detail = () => {
   const { data, error, isLoading } = useSelector((store) => store);
 
   // url deki arama parametresini al
   const [params] = useSearchParams();
   const code = params.get("code");
-  const query = params.get("q");
-
   const dispatch = useDispatch();
   //! console.log(code)
 
-
+// covid nesnesini diziye çevirme
+const covidArr = Object.entries(data?.covid || {})
+console.log(data.covid);
+console.log(covidArr);
 
   useEffect(() => {
     // verileri alıp store a aktaran aksiyonu tetikle
-    dispatch(getData({ code, query }));
-  }, [code, query]);
-
-
-// covid nesnesini diziye çevirme
-const covidArr = Object.entries(data?.covid || {})
-//! console.log(data.covid);
-//! console.log(covidArr);
-//! console.log(data)
+    dispatch(getData({ code }));
+  }, []);
 
   return (
     <div
@@ -60,14 +52,15 @@ const covidArr = Object.entries(data?.covid || {})
           </div>
         </div>
         {/* alt içerik */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-          {isLoading? (
+        <div className="text-gray-900">{isLoading ? (
           <Loader/>
-        ) : error ? (<Error info={error} retry={()=>dispatch(getData(code, query))} />
+        ) : error ? (<Error info={error} />
 
         ):(
 
-        covidArr.map((item, key)=> <InfoCard item={item} key={key} />)
+        covidArr.map((item, key)=> <div>
+          <InfoCard />
+          </div>)
 
         )}
 
