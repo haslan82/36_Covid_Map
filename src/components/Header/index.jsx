@@ -14,7 +14,7 @@ const Header = () => {
     <Form/>
     <div className='flex items-center gap-3 max-md:hidden'>
       <p className='flex flex-col text-sm'>
-        <span>Bugün AŞı Olanlar</span>
+        <span>Bugün Aşı Olanlar</span>
         <span className='text-gray-400'>(64920)</span>
       </p>
       <TbVaccine className='text-xl text-green-500'/>
