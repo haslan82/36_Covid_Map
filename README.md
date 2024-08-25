@@ -27,6 +27,14 @@ Bu React tabanlı uygulama, dünya çapında COVID-19 vakalarının gerçek zama
 #  Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
 
 
+
+
+
+
+
+
+
+
 # API
 
 - 1 (Covid Verisi): https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/playground/apiendpoint_ef9e1955-666c-43ba-9b5c-4b463ae316dc
